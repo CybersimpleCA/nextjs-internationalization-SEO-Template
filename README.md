@@ -6,15 +6,33 @@ This template provides a production-ready foundation for building multilingual N
 
 ## 🌐 Features
 
+### 🎯 Core i18n Features
 - ✅ **Path-based routing** (`/en/`, `/es/`)
 - ✅ **Automatic locale detection** from browser language
 - ✅ **SEO-friendly URLs** with locale prefixes
+- ✅ **Server-side rendering** compatible
+- ✅ **Easy to extend** with more languages
+
+### 🚀 Automatic Translation System
+- ✅ **Auto-sync translations** when content updates
+- ✅ **AI-powered translations** (OpenAI integration ready)
+- ✅ **File watching** for real-time translation sync
+- ✅ **Smart merging** preserves existing translations
+- ✅ **Pre-commit hooks** for automatic sync
+
+### 🎨 Modern UI & SEO
+- ✅ **Tailwind CSS** with responsive design
+- ✅ **Language switcher** component
 - ✅ **Dynamic Metadata** for unique titles and descriptions
 - ✅ **JSON-LD Structured Data** for rich snippets
 - ✅ **OpenGraph & Twitter Cards** for social sharing
+- ✅ **Custom 404 pages** with translations
+
+### 🛠️ Developer Experience
 - ✅ **TypeScript support** with strict typing
-- ✅ **Server-side rendering** compatible
-- ✅ **Easy to extend** with more languages
+- ✅ **Hot reload** with Turbopack
+- ✅ **ESLint configuration**
+- ✅ **Comprehensive documentation**
 
 ## 📁 Template Structure
 
@@ -41,9 +59,7 @@ nextjs-i18n-template/
 
 ## 🚀 Getting Started
 
-To get started with this template, you have two options:
-
-### Option 1: Use this repository as a template
+### Option 1: Use this repository as a template (Recommended)
 
 1. Click the "Use this template" button on the GitHub repository page.
 2. Choose a name for your new repository and create it.
@@ -56,14 +72,23 @@ To get started with this template, you have two options:
    ```bash
    npm install
    ```
-5. Run the development server:
-    ```bash
-    npm run dev
-    ```
+5. Start development with automatic translations:
+   ```bash
+   # Start the file watcher for auto-translations
+   npm run translate:watch
+   
+   # In another terminal, start the dev server
+   npm run dev
+   ```
 
-### Option 2: Manually copy the files
+### Option 2: Use the setup script
 
-If you prefer to integrate these features into an existing project, you can follow the manual steps outlined below.
+```bash
+./setup-new-project.sh your-project-name ~/your-projects-folder
+cd ~/your-projects-folder/your-project-name
+npm run translate:watch &  # Start translation watcher
+npm run dev               # Start development server
+```
 
 ## 🚀 How to Use This Template
 
@@ -138,11 +163,69 @@ If you prefer to integrate these features into an existing project, you can foll
    }
    ```
 
+## 🌍 Automatic Translation System
+
+This template includes a powerful automatic translation system that keeps all your language files in sync.
+
+### Quick Commands
+
+```bash
+# Sync all translations manually
+npm run translate
+
+# Use AI-powered translations (recommended)
+npm run translate:ai
+
+# Watch for changes and auto-translate
+npm run translate:watch
+
+# Setup AI translations
+npm run translate:setup
+```
+
+### How It Works
+
+1. **Edit `messages/en.json`** - Your master translation file
+2. **Translations sync automatically** - Missing translations are generated
+3. **Existing translations preserved** - Never overwrites your custom translations
+4. **Real-time updates** - File watcher syncs changes instantly
+
+### Example Workflow
+
+1. Add new content to English:
+```json
+// messages/en.json
+{
+  "HomePage": {
+    "title": "Welcome to Your App",
+    "newFeature": "Check out our amazing new feature!"
+  }
+}
+```
+
+2. Run translation sync:
+```bash
+npm run translate
+```
+
+3. Spanish file automatically updates:
+```json
+// messages/es.json (auto-generated)
+{
+  "HomePage": {
+    "title": "Bienvenido a Tu Aplicación", 
+    "newFeature": "¡Echa un vistazo a nuestra increíble nueva función!"
+  }
+}
+```
+
+For detailed instructions, see: [`docs/TRANSLATION_GUIDE.md`](docs/TRANSLATION_GUIDE.md)
+
 ## 🔧 Customization
 
 ### Adding New Languages
 
-1. **Add locale to routing config:**
+1. **Update routing config:**
    ```typescript
    // i18n/routing.ts
    export const routing = defineRouting({
@@ -151,10 +234,15 @@ If you prefer to integrate these features into an existing project, you can foll
    });
    ```
 
-2. **Create translation file:**
+2. **Update translation script:**
+   ```javascript
+   // scripts/translate.js
+   const TARGET_LOCALES = ['es', 'fr']; // Add 'fr'
+   ```
+
+3. **Run sync:**
    ```bash
-   cp messages/en.json messages/fr.json
-   # Edit messages/fr.json with French translations
+   npm run translate
    ```
 
 ### Adding New Translation Keys
@@ -207,18 +295,33 @@ export default function MyComponent() {
 ## 🌍 Supported URLs
 
 - `/` → Redirects to `/en` or `/es` based on browser language
-- `/en` → English version
+- `/en` → English version  
 - `/es` → Spanish version
 - `/en/about` → English about page
 - `/es/about` → Spanish about page
 
+## 📋 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server with Turbopack |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run translate` | Sync all translations |
+| `npm run translate:ai` | AI-powered translation sync |
+| `npm run translate:watch` | Watch files and auto-sync |
+| `npm run translate:setup` | AI translation setup guide |
+
 ## 📝 Notes
 
-- The template uses next-intl v4.0 with the latest API
-- TypeScript is fully configured with proper types
-- The middleware handles automatic locale detection
-- All navigation components are locale-aware
-- SEO-friendly with proper hreflang tags
+- **Latest Next.js 15** with App Router
+- **next-intl v4.3.1** with modern API
+- **Tailwind CSS** for styling
+- **TypeScript** with strict configuration
+- **Automatic locale detection** via middleware
+- **SEO-optimized** with proper hreflang tags
+- **Translation automation** with AI support
 
 ## 🔗 Useful Links
 

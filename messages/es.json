@@ -1,7 +1,9 @@
 {
   "HomePage": {
     "title": "Bienvenido a Tu App",
-    "description": "¡Esta es una aplicación Next.js con internacionalización lista para usar!"
+    "description": "¡Esta es una aplicación Next.js con internacionalización lista para usar!",
+    "getStarted": "Comenzar",
+    "learnMore": "Saber Más"
   },
   "Metadata": {
     "siteName": "Tu Nombre de Sitio",
@@ -10,5 +12,10 @@
     "keywords": "tus, palabras, clave, aquí",
     "author": "Tu Nombre",
     "url": "https://tudominio.com"
+  },
+  "NotFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que buscas no existe.",
+    "backHome": "Volver al Inicio"
   }
 }

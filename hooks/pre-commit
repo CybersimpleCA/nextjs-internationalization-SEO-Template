@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Pre-commit hook for automatic translation sync
+# This ensures translations are always up-to-date when committing
+
+echo "🔍 Checking for translation updates..."
+
+# Check if messages/en.json was modified
+if git diff --cached --name-only | grep -q "messages/en.json"; then
+    echo "📝 English translations modified, syncing other languages..."
+    
+    # Run translation sync
+    npm run translate
+    
+    # Add updated translation files to commit
+    git add messages/*.json
+    
+    echo "✅ Translations synced and added to commit"
+else
+    echo "ℹ️  No translation changes detected"
+fi
+
+echo "🚀 Proceeding with commit..." 

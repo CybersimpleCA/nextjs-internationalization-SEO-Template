@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../globals.css";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, getTranslations} from 'next-intl/server';
 import StructuredData from '../../components/structured-data';
-
-const inter = Inter({ subsets: ["latin"] });
+import AdvancedStructuredData from '../../components/seo/advanced-structured-data';
 
 // Dynamic metadata generation for SEO
 export async function generateMetadata({
@@ -61,11 +58,26 @@ export async function generateMetadata({
       creator: '@yourtwitterhandle',
     },
     alternates: {
-      canonical: '/',
-      languages: {
-        'en-US': '/en',
-        'es-ES': '/es',
-      },
+      canonical: `/${locale}`,
+      languages: Object.fromEntries(
+        ['en', 'es'].map(lang => [
+          lang === 'en' ? 'en-US' : 'es-ES', 
+          `/${lang}`
+        ])
+      ),
+    },
+    category: 'website',
+    classification: 'Business',
+    referrer: 'origin-when-cross-origin',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.NEXT_PUBLIC_YANDEX_SITE_VERIFICATION,
+      yahoo: process.env.NEXT_PUBLIC_YAHOO_SITE_VERIFICATION,
     },
   };
 }
@@ -84,15 +96,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <head>
-        <StructuredData />
-      </head>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <StructuredData />
+      <AdvancedStructuredData type="website" />
+      <AdvancedStructuredData type="organization" />
+      {children}
+    </NextIntlClientProvider>
   );
 }

@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "translate": "node scripts/translate.js sync",
+    "translate:ai": "node scripts/translate-ai.js sync",
+    "translate:watch": "node scripts/watch-translations.js",
+    "translate:setup": "node scripts/translate-ai.js setup"
   },
   "dependencies": {
     "next": "15.3.4",
@@ -18,8 +22,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
     "typescript": "^5"
   }
 }

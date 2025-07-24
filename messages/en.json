@@ -1,7 +1,9 @@
 {
   "HomePage": {
     "title": "Welcome to Your App",
-    "description": "This is a Next.js app with internationalization ready to use!"
+    "description": "This is a Next.js app with internationalization ready to use!",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
   },
   "Metadata": {
     "siteName": "Your Site Name",
@@ -10,5 +12,10 @@
     "keywords": "your, keywords, here",
     "author": "Your Name",
     "url": "https://yourdomain.com"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for doesn't exist.",
+    "backHome": "Back to Home"
   }
 }
