@@ -6,7 +6,7 @@ const path = require('path');
 // Configuration
 const MESSAGES_DIR = path.join(__dirname, '../messages');
 const SOURCE_LOCALE = 'en'; // Base language for translations
-const TARGET_LOCALES = ['es']; // Add more languages here: ['es', 'fr', 'de']
+const TARGET_LOCALES = ['es', 'fr']; // Add more languages here: ['es', 'fr', 'de']
 
 // Simple translation mapping (you can replace this with AI/API service)
 const TRANSLATIONS = {
