@@ -1,21 +1,21 @@
 {
   "HomePage": {
-    "title": "[AUTO] Welcome to Your App",
-    "description": "¡Esta es una aplicación Next.js con internacionalización lista para usar!",
+    "title": "Bienvenido a Cybersimple",
+    "description": "¡Tranquilidad gracias a la seguridad!",
     "getStarted": "Comenzar",
-    "learnMore": "Saber Más"
+    "learnMore": "Más información"
   },
   "Metadata": {
-    "siteName": "[AUTO] Your Site Name",
-    "defaultTitle": "[AUTO] Your Site Name - Your Tagline",
-    "defaultDescription": "[AUTO] Your default site description.",
-    "keywords": "[AUTO] your, keywords, here",
-    "author": "[AUTO] Erick",
-    "url": "[AUTO] https://yourdomain.com"
+    "siteName": "Cybersimple",
+    "defaultTitle": "Cybersimple",
+    "defaultDescription": "Descripción predeterminada del sitio.",
+    "keywords": "tus, palabras, clave, aquí",
+    "author": "Erick Delgado Garcia",
+    "url": "https://yourdomain.com"
   },
   "NotFound": {
-    "title": "Página No Encontrada",
+    "title": "Página no encontrada",
     "description": "La página que buscas no existe.",
-    "backHome": "Volver al Inicio"
+    "backHome": "Volver al inicio"
   }
 }

@@ -1,21 +1,21 @@
 {
   "HomePage": {
-    "title": "Bienvenido a Tu App",
-    "description": "¡Esta es una aplicación Next.js con internacionalización lista para usar!",
-    "getStarted": "Comenzar",
-    "learnMore": "Saber Más"
+    "title": "Bienvenue sur Cybersimple",
+    "description": "La tranquillité d'esprit grâce à la sécurité !",
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus"
   },
   "Metadata": {
-    "siteName": "Tu Nombre de Sitio",
-    "defaultTitle": "Tu Nombre de Sitio - Tu Lema",
-    "defaultDescription": "La descripción por defecto de tu sitio.",
-    "keywords": "tus, palabras, clave, aquí",
-    "author": "Tu Nombre",
-    "url": "https://tudominio.com"
+    "siteName": "Cybersimple",
+    "defaultTitle": "Cybersimple",
+    "defaultDescription": "Description par défaut du site.",
+    "keywords": "vos, mots-clés, ici",
+    "author": "Erick Delgado Garcia",
+    "url": "https://yourdomain.com"
   },
   "NotFound": {
-    "title": "Página No Encontrada",
-    "description": "La página que buscas no existe.",
-    "backHome": "Volver al Inicio"
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas.",
+    "backHome": "Retour à l'accueil"
   }
 }

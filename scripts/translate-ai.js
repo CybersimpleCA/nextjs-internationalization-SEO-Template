@@ -235,6 +235,8 @@ const LANGUAGE_NAMES = {
 // 3. The REAL AI translation function
 async function translateWithAI(text, targetLocale, context = '') {
   const targetLanguage = LANGUAGE_NAMES[targetLocale] || targetLocale;
+  console.log(targetLanguage);
+  console.log(apiKey);
   
   try {
     const response = await openai.chat.completions.create({
@@ -359,6 +361,7 @@ async function syncTranslationsAI() {
 
     // 2. Merge with existing (so we don't overwrite manual edits)
     const finalMessages = mergeTranslations(existingMessages, translatedData);
+    console.log(finalMessages);
     
     saveMessages(locale, finalMessages);
     console.log(`✅ Saved ${locale}.json`);

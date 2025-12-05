@@ -1,16 +1,17 @@
 {
   "HomePage": {
-    "title": "Welcome to Your App",
-    "description": "This is a Next.js app with internationalization ready to use!",
+    "title": "Welcome to Cybersimple",
+    "description": "Peace of mind through security!",
+    "comingSoon": "We are currently working on something great! Check back in soon!",
     "getStarted": "Get Started",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More now"
   },
   "Metadata": {
-    "siteName": "Your Site Name",
-    "defaultTitle": "Your Site Name - Your Tagline",
-    "defaultDescription": "Your default site description.",
+    "siteName": "Cybersimple",
+    "defaultTitle": "Cybersimple",
+    "defaultDescription": "Default site description.",
     "keywords": "your, keywords, here",
-    "author": "Erick Delgado",
+    "author": "Erick Delgado Garcia",
     "url": "https://yourdomain.com"
   },
   "NotFound": {
