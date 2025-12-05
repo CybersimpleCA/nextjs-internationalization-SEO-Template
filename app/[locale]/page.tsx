@@ -1,105 +1,139 @@
-import {useTranslations} from 'next-intl';
-import LanguageSwitcher from '../../components/language-switcher';
+'use client'; 
 
-import React from 'react';
-import { ShieldCheck, Lock, Server, Terminal, Mail, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from '../../components/language-switcher';
+import React, { useState } from 'react'; 
+import { ShieldCheck, Lock, Server, Terminal, Mail, ChevronRight, Menu, X } from 'lucide-react'; 
 
 export default function Home() {
   const t = useTranslations('HomePage');
-  
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    
     <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-blue-500 selection:text-white">
-      {/* --- Navigation --- */}
-      <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 z-50">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl text-slate-100">
-            {/* <ShieldCheck className="text-blue-500" /> */}
-            <span>CYBER<span className="text-blue-500">SIMPLE</span></span>
+      
+{/* --- Navigation --- */}
+      <nav className="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50 transition-all">
+        <div className="w-full px-4 h-20 flex items-center justify-between">
+          
+          {/* 1. LEFT: Logo */}
+          <div className="flex items-center gap-2 font-bold text-2xl md:text-3xl text-slate-100">
+            <a href='#hero' onClick={() => setIsMobileMenuOpen(false)}>
+              CYBER<span className="text-blue-600">SIMPLE</span>
+            </a>
           </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-            <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-            <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
+
+          {/* 2. RIGHT: Everything else (Links + Language + Mobile Toggle) */}
+          <div className="flex items-center gap-4 md:gap-8">
+            
+            {/* Desktop Links (Visible on PC, Hidden on Mobile) */}
+            <div className="hidden md:flex gap-6 lg:gap-8 text-sm font-medium">
+              <a href="#about" className="hover:text-blue-400 transition-colors">{t('about')}</a>
+              <a href="#services" className="hover:text-blue-400 transition-colors">{t('services')}</a>
+              <a href="#contact" className="hover:text-blue-400 transition-colors">{t('contact')}</a>
+            </div>
+
+            {/* Icons & Toggles */}
+            <div className="flex items-center gap-4">
+              <div className="hidden sm:block"> 
+                   <LanguageSwitcher />
+              </div>
+
+              {/* Hamburger Button (Mobile Only) */}
+              <button 
+                className="md:hidden text-slate-300 hover:text-white focus:outline-none"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
-          <div className="p-6 flex justify-end">
-            <LanguageSwitcher />
-          </div>
+
         </div>
 
+        {/* Mobile Menu Dropdown (Stays the same) */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-6 text-center animate-in slide-in-from-top-5">
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('about')}</a>
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('services')}</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('contact')}</a>
+            <div className="sm:hidden flex justify-center pt-4 border-t border-slate-900">
+               <LanguageSwitcher /> 
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* --- Hero Section --- */}
-      <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[80vh]">
+      <section id="hero" className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[85vh]">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-blue-400 text-xs font-medium mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          Available for Freelance Projects
+          {t('available')}
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight mb-6">
-          Protecting Your <br />
+        
+        <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight mb-6 break-words max-w-full">
+          {t('heroTitle')}<br className="hidden md:block"/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-            Digital Infrastructure
+            {t('heroTitle2')}
           </span>
         </h1>
+        
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
-          I provide specialized cybersecurity consulting for small to mid-sized businesses. 
-          From vulnerability assessments to network hardening, I ensure your assets stay secure in an evolving threat landscape.
+          {t('description')}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-950 font-bold rounded-lg hover:bg-slate-200 transition-all">
-            Secure Your Business
+        
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <a href="#contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-950 font-bold rounded-lg hover:bg-slate-200 transition-all w-full sm:w-auto">
+            {t('getStarted')}
             <ChevronRight size={20} />
           </a>
-          <a href="#services" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 border border-slate-700 text-white font-semibold rounded-lg hover:border-blue-500 transition-all">
-            View Services
+          <a href="#services" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 border border-slate-700 text-white font-semibold rounded-lg hover:border-blue-500 transition-all w-full sm:w-auto">
+            {t('learnMore')}
           </a>
         </div>
       </section>
 
-            {/* --- Services Section --- */}
+      {/* --- Services Section --- */}
       <section id="services" className="py-24 bg-slate-900/50 border-y border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-slate-100 mb-4">Core Competencies</h2>
+            <h2 className="text-3xl font-bold text-slate-100 mb-4">{t('servicesTitle')}</h2>
             <p className="text-slate-400 max-w-2xl">
-              Modern security requires a multi-layered approach. Here is how I can help you mitigate risk.
+              {t('servicesDescription')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Service 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-2xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all group">
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-950 transition-colors">
                 <Terminal className="text-blue-500" />
               </div>
-              <h3 className="text-xl font-bold text-slate-100 mb-3">Penetration Testing</h3>
+              <h3 className="text-xl font-bold text-slate-100 mb-3">{t('serviceTitle1')}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Simulated cyberattacks against your computer system to check for exploitable vulnerabilities before the bad guys do.
+                {t('serviceDescription1')}
               </p>
             </div>
 
-            {/* Service 2 */}
             <div className="p-8 rounded-2xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all group">
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-950 transition-colors">
                 <Lock className="text-blue-500" />
               </div>
-              <h3 className="text-xl font-bold text-slate-100 mb-3">Network Hardening</h3>
+              <h3 className="text-xl font-bold text-slate-100 mb-3">{t('serviceTitle2')}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Securing your network infrastructure by reducing the surface of vulnerability through configuration and architecture audits.
+                {t('serviceDescription2')}
               </p>
             </div>
 
-            {/* Service 3 */}
             <div className="p-8 rounded-2xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all group">
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-950 transition-colors">
                 <Server className="text-blue-500" />
               </div>
-              <h3 className="text-xl font-bold text-slate-100 mb-3">Compliance Audits</h3>
+              <h3 className="text-xl font-bold text-slate-100 mb-3">{t('serviceTitle3')}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Ensuring your business meets industry standards (SOC2, ISO 27001, HIPAA) regarding data privacy and security controls.
+                {t('serviceDescription3')}
               </p>
             </div>
           </div>
@@ -110,12 +144,9 @@ export default function Home() {
       <section id="about" className="py-24 max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
-            <h2 className="text-3xl font-bold text-slate-100 mb-6">About My Approach</h2>
+            <h2 className="text-3xl font-bold text-slate-100 mb-6">{t('aboutTitle')}</h2>
             <p className="text-slate-400 mb-6 leading-relaxed">
-              I am a security professional with a background in system administration and offensive security. I believe that security shouldn't be a blocker to business, but an enabler. 
-            </p>
-            <p className="text-slate-400 mb-8 leading-relaxed">
-              My methodology involves understanding your unique business logic first, then applying technical controls that fit your workflow, not just a checklist.
+              {t('aboutDescription')}
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -131,20 +162,19 @@ export default function Home() {
              <div className="absolute top-0 right-0 p-4 opacity-10">
                 <ShieldCheck size={150} />
              </div>
-             <h3 className="text-lg font-bold text-white mb-4">Why Hire a Freelancer?</h3>
-             <ul className="space-y-4">
-                {[
-                  "Direct communication with the expert",
-                  "Cost-effective compared to agencies",
-                  "Flexible scheduling for urgent audits",
-                  "Tailored reports, not automated scans"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                    <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    {item}
-                  </li>
-                ))}
-             </ul>
+             <h3 className="text-lg font-bold text-white mb-4">{t('benefitsTitle')}</h3>
+            <ul className="space-y-4">
+            {[
+                t('benefit1'),
+                t('benefit2'),
+                t('benefit3'),
+              ].map((item, i) => (
+              <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
+                <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                {item}
+              </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -152,34 +182,22 @@ export default function Home() {
       {/* --- Contact Footer --- */}
       <footer id="contact" className="bg-slate-950 border-t border-slate-900 pt-20 pb-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-100 mb-6">Ready to secure your assets?</h2>
-          <p className="text-slate-400 mb-10">
-            Reach out for a preliminary consultation. <br />
-            I usually respond within 24 hours.
-          </p>
+          <h2 className="text-3xl font-bold text-slate-100 mb-6">{t('contactTitle')}</h2>
           
           <a 
-            href="mailto:contact@example.com"
+            href="mailto:info@cybersimple.ca"
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors mb-16"
           >
             <Mail size={18} />
-            Get in Touch
+            {t('emailMessage')}
           </a>
 
-          <div className="flex justify-center gap-8 mb-12">
-            {/* <a href="#" className="text-slate-500 hover:text-white transition-colors">link1</a>
-            <a href="#" className="text-slate-500 hover:text-white transition-colors">link2</a> */}
-          </div>
-
           <div className="text-slate-600 text-sm">
-            &copy; {new Date().getFullYear()} All rights reserved.
+            &copy; {new Date().getFullYear()} {t('rights')}
           </div>
         </div>
       </footer>
-
-      
-
     </div>
-    
   );
 }
+

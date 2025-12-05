@@ -1,17 +1,39 @@
 {
   "HomePage": {
-    "title": "Bienvenue sur Cybersimple",
-    "description": "La tranquillité d'esprit grâce à la sécurité !",
-    "getStarted": "Commencer",
-    "learnMore": "En savoir plus"
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "available": "Disponible pour mandats",
+    "heroTitle": "La tranquillité d'esprit",
+    "heroTitle2": "grâce à la sécurité !",
+    "description": "Je fournis des services de consultation spécialisés en cybersécurité pour les PME. De l'évaluation des vulnérabilités au durcissement des réseaux, je veille à la sécurité de vos actifs.",
+    "getStarted": "Sécurisez votre entreprise",
+    "learnMore": "Voir les services",
+    "servicesTitle": "Compétences clés",
+    "servicesDescription": "La sécurité moderne nécessite une approche multicouche. Voici comment je peux vous aider à atténuer les risques.",
+    "serviceTitle1": "Tests d'intrusion",
+    "serviceDescription1": "Cyberattaques simulées contre votre système informatique pour détecter les vulnérabilités exploitables.",
+    "serviceTitle2": "Renforcement du réseau",
+    "serviceDescription2": "Sécurisation de votre infrastructure réseau en réduisant la surface d'attaque grâce à des audits de configuration.",
+    "serviceTitle3": "Audits de conformité",
+    "serviceDescription3": "Garantir que votre entreprise respecte les normes de l'industrie (SOC2, ISO 27001, HIPAA) en matière de confidentialité des données.",
+    "aboutTitle": "À propos de mon approche",
+    "aboutDescription": "Je suis un professionnel de la sécurité avec une expérience en administration système et en sécurité offensive.",
+    "benefitsTitle": "Pourquoi un expert indépendant ?",
+    "benefit1": "Communication directe avec l'expert",
+    "benefit2": "Plus économique que les grandes agences",
+    "benefit3": "Horaires flexibles pour les audits urgents",
+    "contactTitle": "Prêt à sécuriser vos actifs ?",
+    "emailMessage": "Prendre contact",
+    "rights": "Tous droits réservés."
   },
   "Metadata": {
     "siteName": "Cybersimple",
     "defaultTitle": "Cybersimple",
-    "defaultDescription": "Description par défaut du site.",
-    "keywords": "vos, mots-clés, ici",
+    "defaultDescription": "Services de consultation en cybersécurité à Montréal.",
+    "keywords": "cybersécurité, consultant, pigiste, freelance, sécurité informatique",
     "author": "Erick Delgado Garcia",
-    "url": "https://yourdomain.com"
+    "url": "https://cybersimple.ca"
   },
   "NotFound": {
     "title": "Page introuvable",
