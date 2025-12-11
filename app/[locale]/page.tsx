@@ -3,14 +3,16 @@
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '../../components/language-switcher';
 import React, { useState } from 'react'; 
-import { ShieldCheck, Lock, Server, Terminal, Mail, ChevronRight, Menu, X } from 'lucide-react'; 
+import { ShieldCheck, Lock, Server, Terminal, Mail, ChevronRight, Menu, X } from 'lucide-react';
+import Image from 'next/image';
+
 
 export default function Home() {
   const t = useTranslations('HomePage');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-blue-500 selection:text-white ">
       
 {/* --- Navigation --- */}
       <nav className="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50 transition-all">
@@ -19,7 +21,7 @@ export default function Home() {
           {/* 1. LEFT: Logo */}
           <div className="flex items-center gap-2 font-bold text-2xl md:text-3xl text-slate-100">
             <a href='#hero' onClick={() => setIsMobileMenuOpen(false)}>
-              CYBER<span className="text-blue-600">SIMPLE</span>
+              CYBER<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">SIMPLE</span>
             </a>
           </div>
 
@@ -58,14 +60,26 @@ export default function Home() {
             <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('services')}</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('contact')}</a>
             <div className="sm:hidden flex justify-center pt-4 border-t border-slate-900">
-               <LanguageSwitcher /> 
+               <LanguageSwitcher />
             </div>
           </div>
         )}
       </nav>
 
       {/* --- Hero Section --- */}
-      <section id="hero" className="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[85vh]">
+      <section id="hero" className=" relative pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[85vh] overflow-hidden">
+        {/* <Image 
+          src="/cyber_bg.jpg"     // Make sure this file is in your public folder
+          alt="Cybersecurity Background"
+          fill                   // Tells image to fill the parent section
+          priority               // Loads image immediately (good for SEO/LCP)
+          className="object-cover" // Ensures image doesn't stretch weirdly
+        /> */}
+
+        {/* <div className="absolute inset-0 bg-slate-950/80 z-0"></div> */}
+        
+        {/* <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-start w-full"> */}
+
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-blue-400 text-xs font-medium mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -93,7 +107,8 @@ export default function Home() {
           <a href="#services" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 border border-slate-700 text-white font-semibold rounded-lg hover:border-blue-500 transition-all w-full sm:w-auto">
             {t('learnMore')}
           </a>
-        </div>
+          </div>
+        {/* </div> */}
       </section>
 
       {/* --- Services Section --- */}
@@ -150,7 +165,15 @@ export default function Home() {
             </p>
             
             <div className="flex flex-wrap gap-3">
-              {['Python', 'Linux', 'Wireshark', 'Burp Suite', 'AWS Security', 'Bash Scripting'].map((tech) => (
+              {/* Correct syntax: No curly braces around individual t() calls inside the array */}
+              {[
+                t('skill1'), 
+                t('skill2'), 
+                t('skill3'), 
+                t('skill4'), 
+                t('skill5'), 
+                t('skill6')
+              ].map((tech) => (
                 <span key={tech} className="px-3 py-1 bg-slate-900 border border-slate-700 rounded text-xs font-mono text-blue-400">
                   {tech}
                 </span>
@@ -158,10 +181,16 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex-1 w-full p-8 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-4 opacity-10">
-                <ShieldCheck size={150} />
-             </div>
+          <div className="flex-1 w-full p-8  rounded-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4">
+              <Image 
+                src="/icon.png"      // <--- Check your file extension (.png, .jpg, .svg)
+                alt="Decorative Icon"
+                width={200}          // Matches the previous icon size
+                height={200}
+                className="object-contain" // Ensures the image doesn't stretch
+              />
+            </div>
              <h3 className="text-lg font-bold text-white mb-4">{t('benefitsTitle')}</h3>
             <ul className="space-y-4">
             {[
