@@ -19,7 +19,7 @@ export default function Home() {
         <div className="w-full px-4 h-20 flex items-center justify-between">
           
           {/* 1. LEFT: Logo */}
-          <div className="flex items-center gap-2 font-bold text-2xl md:text-3xl text-slate-100">
+          <div className="flex items-center gap-2 font-bold text-4xl md:text-5xl text-slate-100">
             <a href='#hero' onClick={() => setIsMobileMenuOpen(false)}>
               CYBER<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">SIMPLE</span>
             </a>
@@ -211,7 +211,7 @@ export default function Home() {
       <footer id="contact" className="bg-slate-950 border-t border-slate-900 pt-20 pb-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-100 mb-6">{t('contactTitle')}</h2>
-          
+          <h2 className="text-xl font-bold text-slate-100 mb-6">info@cybersimple.ca</h2>
           <a 
             href="mailto:info@cybersimple.ca"
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors mb-16"
