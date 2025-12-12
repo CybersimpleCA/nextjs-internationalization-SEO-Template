@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "available": "Disponible",
+    "heroTitle": "La tranquillité d'esprit",
+    "heroTitle2": "grâce à la sécurité !",
+    "description": "Je simplifie l'informatique pour qu'elle serve réellement votre entreprise. Je fournis des solutions TI épurées qui gardent votre infrastructure sécurisée et votre équipe productive, sans maux de tête.",
+    "getStarted": "Simplifiez et sécurisez vos projets",
+    "learnMore": "Voir les solutions",
+    "servicesTitle": "Solutions simples et sûres",
+    "servicesDescription": "La technologie doit être un outil pour votre entreprise, pas un obstacle. Voici comment je vous aide à opérer efficacement et en toute sécurité.",
+    "serviceTitle1": "Soutien TI simplifié",
+    "serviceDescription1": "Je gère la complexité technique pour vous. Des mises à jour logicielles au dépannage matériel, je m'assure que vos systèmes fonctionnent sans friction.",
+    "serviceTitle2": "Sécurité gérée",
+    "serviceDescription2": "Une protection de haut niveau, simplifiée. Je déploie une surveillance continue et un antivirus de nouvelle génération pour protéger vos données contre les rançongiciels et les logiciels malveillants.",
+    "serviceTitle3": "Formation et sensibilisation",
+    "serviceDescription3": "Faites de votre équipe votre meilleure défense. J'offre une formation pratique et sans jargon pour aider vos employés à repérer l'hameçonnage sans perturber leur travail.",
+    "aboutTitle": "Ma philosophie",
+    "aboutDescription": "Je suis un professionnel des TI combinant la logique de développement logiciel et la discipline de la cybersécurité pour bâtir des systèmes faciles à utiliser et robustes.",
+    "skill1": "Microsoft 365",
+    "skill2": "Sécurité réseau",
+    "skill3": "Protection des terminaux",
+    "skill4": "Soutien TI",
+    "skill5": "Gestion infonuagique",
+    "skill6": "Gestion des vulnérabilités",
+    "benefitsTitle": "Pourquoi travailler avec moi ?",
+    "benefit1": "Un seul point de contact direct",
+    "benefit2": "Outils essentiels et économiques",
+    "benefit3": "Soutien bilingue basé à Montréal",
+    "contactTitle": "Prêt à sécuriser vos actifs ?",
+    "emailMessage": "Prendre contact",
+    "rights": "Tous droits réservés."
+  },
+  "Metadata": {
+    "siteName": "Cybersimple",
+    "defaultTitle": "Cybersimple - Consultant TI",
+    "defaultDescription": "Solutions TI simples et sécurisées pour PME.",
+    "keywords": "cybersécurité, support informatique, consultant, TI simple, montréal",
+    "author": "Erick Delgado Garcia",
+    "url": "https://cybersimple.ca"
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas.",
+    "backHome": "Retour à l'accueil"
+  }
+}
