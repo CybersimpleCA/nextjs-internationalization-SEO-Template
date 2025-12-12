@@ -165,7 +165,6 @@ export default function Home() {
             </p>
             
             <div className="flex flex-wrap gap-3">
-              {/* Correct syntax: No curly braces around individual t() calls inside the array */}
               {[
                 t('skill1'), 
                 t('skill2'), 
