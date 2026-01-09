@@ -18,17 +18,14 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50 transition-all">
         <div className="w-full px-4 h-20 flex items-center justify-between">
           
-          {/* 1. LEFT: Logo */}
           <div className="flex items-center gap-2 font-bold text-4xl md:text-5xl text-slate-100">
             <a href='#hero' onClick={() => setIsMobileMenuOpen(false)}>
               CYBER<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">SIMPLE</span>
             </a>
           </div>
 
-          {/* 2. RIGHT: Everything else (Links + Language + Mobile Toggle) */}
           <div className="flex items-center gap-4 md:gap-8">
-            
-            {/* Desktop Links (Visible on PC, Hidden on Mobile) */}
+
             <div className="hidden md:flex gap-6 lg:gap-8 text-sm font-medium">
               <a href="#about" className="hover:text-blue-400 transition-colors">{t('about')}</a>
               <a href="#services" className="hover:text-blue-400 transition-colors">{t('services')}</a>
@@ -53,7 +50,6 @@ export default function Home() {
 
         </div>
 
-        {/* Mobile Menu Dropdown (Stays the same) */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-20 left-0 w-full bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-6 text-center animate-in slide-in-from-top-5">
             <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:text-blue-400">{t('about')}</a>
@@ -67,18 +63,7 @@ export default function Home() {
       </nav>
 
       {/* --- Hero Section --- */}
-      <section id="hero" className=" relative pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-[85vh] overflow-hidden">
-        {/* <Image 
-          src="/cyber_bg.jpg"     // Make sure this file is in your public folder
-          alt="Cybersecurity Background"
-          fill                   // Tells image to fill the parent section
-          priority               // Loads image immediately (good for SEO/LCP)
-          className="object-cover" // Ensures image doesn't stretch weirdly
-        /> */}
-
-        {/* <div className="absolute inset-0 bg-slate-950/80 z-0"></div> */}
-        
-        {/* <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-start w-full"> */}
+      <section id="hero" className=" relative pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center min-h-screen overflow-hidden">
 
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-blue-400 text-xs font-medium mb-6">
           <span className="relative flex h-2 w-2">
@@ -88,11 +73,11 @@ export default function Home() {
           {t('available')}
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight mb-6 break-words max-w-full">
-          {t('heroTitle')}<br className="hidden md:block"/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+        <h1 className="text-4xl md:text-7xl font-bold text-slate-100 tracking-tight mb-6 break-words max-w-full">
+          {t('heroTitle')}
+          <div className="block pb-5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
             {t('heroTitle2')}
-          </span>
+          </div>
         </h1>
         
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
@@ -108,7 +93,6 @@ export default function Home() {
             {t('learnMore')}
           </a>
           </div>
-        {/* </div> */}
       </section>
 
       {/* --- Services Section --- */}
@@ -180,29 +164,33 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex-1 w-full p-8  rounded-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4">
-              <Image 
-                src="/icon.png"      // <--- Check your file extension (.png, .jpg, .svg)
-                alt="Decorative Icon"
-                width={200}          // Matches the previous icon size
-                height={200}
-                className="object-contain" // Ensures the image doesn't stretch
-              />
+          <div className="flex-1 w-full p-8 rounded-2xl border border-slate-800 bg-slate-900/30">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+              <div className="md:order-2 shrink-0">
+                <Image 
+                  src="/icon.png"      
+                  alt="Decorative Icon"
+                  width={140} // Smaller for mobile fit
+                  height={140}
+                  className="object-contain md:w-[200px]" 
+                />
+              </div>
+
+              {/* Text Content */}
+              <div className="md:order-1">
+                <h3 className="text-xl font-bold text-white mb-6 text-center md:text-left">
+                  {t('benefitsTitle')}
+                </h3>
+                <ul className="space-y-4">
+                  {[t('benefit1'), t('benefit2'), t('benefit3')].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
+                      <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-             <h3 className="text-lg font-bold text-white mb-4">{t('benefitsTitle')}</h3>
-            <ul className="space-y-4">
-            {[
-                t('benefit1'),
-                t('benefit2'),
-                t('benefit3'),
-              ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                {item}
-              </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
